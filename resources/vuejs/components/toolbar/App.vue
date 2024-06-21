@@ -51,6 +51,11 @@ module.exports = exports = {
 		const itemsLeft = [];
 		const itemsRight = [];
 
+		if ( this.items.length === 1 ) {
+			this.items[ 0 ].action = 'progressive';
+			this.items[ 0 ].weight = 'primary';
+		}
+
 		for ( let index = 0; index < this.items.length; index++ ) {
 			const item = this.items[ index ];
 			if ( item.hasOwnProperty( 'slot' ) && item.slot === 'right' ) {
@@ -112,8 +117,8 @@ function sortTools( tools ) {
 .vuejsplus-toolbar {
 	display: flex;
 	justify-content: space-between;
-	border: 1px solid #c8ccd1;
-  	box-shadow: 0 1px 1px 0 rgba(0,0,0,0.1);
+	border-bottom: 1px solid #c8ccd1;
+	box-shadow: 0 1px 1px 0 rgba(0,0,0,0.1);
 	background-color: #fff;
 }
 .vuejsplus-toolbar-items {
