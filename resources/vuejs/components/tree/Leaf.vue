@@ -12,7 +12,7 @@
 				:value="isSelected"
 				:checked="isSelected"
 				@change="toggleCheckbox"
-			><a :id="itemId" :href="href">{{ label }}</a>
+			><a :id="itemId" :href="href" :class="nodeClass">{{ label }}</a>
 		</div>
 	</li>
 	<li
@@ -28,7 +28,7 @@
 				:value="isSelected"
 				:checked="isSelected"
 				@change="toggleCheckbox"
-			><span :id="itemId">{{ label }}</span>
+			><span :id="itemId" :class="nodeClass">{{ label }}</span>
 		</div>
 	</li>
 	<li
@@ -41,7 +41,7 @@
 		v-else
 		role="treeitem"
 		class="vuejsplus-data-tree-item">
-		<div><span :id="itemId">{{ label }}</span></div>
+		<div><span :id="itemId" :class="nodeClass">{{ label }}</span></div>
 	</li>
 </template>
 
@@ -81,6 +81,11 @@ module.exports = exports = {
 			linkNode = true;
 		}
 
+		let nodeClass = '';
+		if ( this.item.hasOwnProperty( 'class' ) ) {
+			nodeClass = this.item.class;
+		}
+
 		if ( this.selectable === true ) {
 			if ( linkNode === true ) {
 				linkNode = false;
@@ -95,6 +100,7 @@ module.exports = exports = {
 			label: this.item.label,
 			name: this.item.name,
 			itemId: this.item.id,
+			nodeClass: nodeClass,
 			href: href,
 			isSelected: this.selected,
 			textNode: textNode,

@@ -12,7 +12,7 @@
 				:checked="isSelected"
 				class="vuejsplus-data-tree-item-checkbox"
 				@change="toggleCheckbox"
-			><a :id="itemId" :href="href">{{ label }}</a>
+			><a :id="itemId" :href="href" :class="nodeClass">{{ label }}</a>
 		</div>
 		<ul
 			:id="treeId"
@@ -43,7 +43,7 @@
 				:checked="isSelected"
 				class="vuejsplus-data-tree-item-checkbox"
 				@change="toggleCheckbox"
-			><span :id="itemId">{{ label }}</span>
+			><span :id="itemId" :class="nodeClass">{{ label }}</span>
 		</div>
 		<ul
 			:id="treeId"
@@ -66,7 +66,7 @@
 		class="vuejsplus-data-tree-item"
 		role="treeitem">
 		<div>
-			<a :id="itemId" :href="href">{{ label }}</a>
+			<a :id="itemId" :href="href" :class="nodeClass">{{ label }}</a>
 		</div>
 		<ul
 			:id="treeId"
@@ -88,7 +88,7 @@
 		class="vuejsplus-data-tree-item"
 		role="treeitem">
 		<div>
-			<span :id="itemId">{{ label }}</span>
+			<span :id="itemId" :class="nodeClass">{{ label }}</span>
 		</div>
 		<ul
 			:id="treeId"
@@ -145,6 +145,11 @@ module.exports = exports = {
 			linkNode = true;
 		}
 
+		let nodeClass = '';
+		if ( this.item.hasOwnProperty( 'class' ) ) {
+			nodeClass = this.item.class;
+		}
+
 		if ( this.selectable === true ) {
 			if ( linkNode === true ) {
 				linkNode = false;
@@ -169,6 +174,7 @@ module.exports = exports = {
 			label: this.item.label,
 			name: this.item.name,
 			itemId: this.item.id,
+			nodeClass: nodeClass,
 			href: href,
 			isSelected: this.selected,
 			treeClass: classes.join( ' ' ),
