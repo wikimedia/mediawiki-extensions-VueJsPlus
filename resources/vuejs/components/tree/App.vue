@@ -67,7 +67,23 @@ module.exports = exports = {
 		tools: {
 			type: Array,
 			default: []
+		},
+		toolbarFloatingOffset: {
+			type: Number,
+			default: 0
 		}
+	},
+	mounted () {
+		var $toolbar = $( '.vuejsplus-toolbar' );
+		var topValue = $( $toolbar ).offset().top;
+		this.topValue = topValue;
+		this.contentWidth = $( '#mw-content-text' ).innerWidth();
+	},
+	created () {
+		window.addEventListener( 'scroll', this.handleFloatingToolbar );
+	},
+	unmounted () {
+		window.removeEventListener( 'scroll', this.handleFloatingToolbar );
 	},
 	data: function () {
 		const nodes = this.nodes;
@@ -90,7 +106,9 @@ module.exports = exports = {
 			items: this.nodes,
 			isSelectable: this.selectable,
 			hasToolbar: this.toolbar,
-			tools: this.tools
+			tools: this.tools,
+			topValue: 0,
+			contentWidth: 1200
 		};
 	},
 	methods: {
@@ -100,6 +118,22 @@ module.exports = exports = {
 			if ( data.hasOwnProperty( 'callback' ) ) {
 				const callback = data.callback;
 				window[ callback ]( this.items );
+			}
+		},
+		handleFloatingToolbar: function () {
+			var windowTop = $( window ).scrollTop();
+			var $toolbar = $( '.vuejsplus-toolbar' );
+			if ( windowTop > this.topValue ) {
+				if ( !$( $toolbar ).hasClass( 'vuejsplus-toolbar-floating' ) ) {
+					$( $toolbar ).addClass( 'vuejsplus-toolbar-floating' );
+					$toolbar.css( 'top', this.toolbarFloatingOffset );
+					$toolbar.css( 'width', this.contentWidth );
+				}
+			} else {
+				if ( $( $toolbar ).hasClass( 'vuejsplus-toolbar-floating' ) ) {
+					$toolbar.removeAttr( 'style' );
+					$( $toolbar ).removeClass( 'vuejsplus-toolbar-floating' );
+				}
 			}
 		}
 	}
