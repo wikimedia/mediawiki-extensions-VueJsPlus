@@ -121,6 +121,10 @@ function sortTools( tools ) {
 	box-shadow: 0 1px 1px 0 rgba(0,0,0,0.1);
 	background-color: #fff;
 }
+.vuejsplus-toolbar.vuejsplus-toolbar-floating {
+	position: fixed;
+	z-index: 5;
+}
 .vuejsplus-toolbar-items {
 	display: inline-flex;
 	list-style: none;
