@@ -4,5 +4,7 @@
 			"Kareyac"
 		]
 	},
-	"vuejsplus-data-grid-option-filter-string": "Գտնել"
+	"vuejsplus-data-tree-expand-btn-expanded-aria-label": "Ծալել",
+	"vuejsplus-data-grid-option-filter-string": "Գտնել",
+	"vuejsplus-data-grid-boolean-cell-image-alt-text-neutral": "Չէզոք"
 }
