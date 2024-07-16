@@ -1,37 +1,26 @@
 <template>
-	<ul
-		class="opt-list"
-		@focusout="doEmitFocusOut"
-		@keyup.esc="doEmitEsc">
-		<component
-			:is="option.name"
-			v-for="( option, index ) in options"
-			:key="index"
-			:data-index="dataIndex"
-			:data-type="dataType"
-			:option="option"
-			@optionclick="doEmitClick"
-			@optionfilter="doEmitFilter"
-		></component>
+	<ul class="opt-list" @focusout="doEmitFocusOut" @keyup.esc="doEmitEsc">
+			<component v-for="( option, index ) in options" :key="index"
+				:is="option.name"
+				v-bind:data-index="dataIndex"
+				v-bind:data-type="dataType"
+				v-bind:option="option"
+				@optionclick="doEmitClick"
+				@optionfilter="doEmitFilter"
+			></component>
 	</ul>
 </template>
 
 <script>
 
-const SortASC = require( './options/SortASC.vue' );
-const SortDESC = require( './options/SortDESC.vue' );
-const StringFilter = require( './options/StringFilter.vue' );
-const DateFilter = require( './options/DateFilter.vue' );
+var SortASC = require( './options/SortASC.vue' );
+var SortDESC = require( './options/SortDESC.vue' );
+var StringFilter = require( './options/StringFilter.vue' );
+var DateFilter = require( './options/DateFilter.vue' );
 
 // @vue/component
 module.exports = exports = {
 	name: 'ColOptions',
-	components: {
-		SortASC: SortASC,
-		SortDESC: SortDESC,
-		StringFilter: StringFilter,
-		DateFilter: DateFilter
-	},
 	props: {
 		options: {
 			type: Array,
@@ -46,12 +35,18 @@ module.exports = exports = {
 			default: ''
 		}
 	},
+	components: {
+		'SortASC': SortASC,
+		'SortDESC': SortDESC,
+		'StringFilter': StringFilter,
+		'DateFilter': DateFilter,
+	},
 	emits: [
 		'update:model-value',
 		'toggle-options-menu'
 	],
 	data: function () {
-		const localOptions = this.options;
+		var localOptions = this.options;
 
 		return {
 			options: localOptions,
@@ -60,23 +55,23 @@ module.exports = exports = {
 		};
 	},
 	methods: {
-		doEmitClick: function ( option ) {
+		doEmitClick: function( option ) {
  			this.$emit( 'update:model-value', option );
   		},
-		doEmitFilter: function ( option ) {
+		doEmitFilter: function( option ) {
    			this.$emit( 'update:model-value', option );
   		},
-		doEmitFocusOut: function ( event ) {
-			const relatedTarget = event.relatedTarget;
+		doEmitFocusOut: function( event ) {
+			let relatedTarget = event.relatedTarget;
 			if ( $( relatedTarget ).hasClass( 'opt-menu' ) ) {
 				this.$emit( 'toggle-options-menu' );
-				$( event.target ).parents( 'th.opt-menu' ).first().trigger( 'focus' );
+				$( event.target ).parents( 'th.opt-menu' ).first().focus();
 			}
   		},
-		doEmitEsc: function ( event ) {
-			$( event.target ).parents( 'th.opt-menu' ).first().trigger( 'focus' );
+		doEmitEsc: function( event ) {
+			$( event.target ).parents( 'th.opt-menu' ).first().focus()
 			this.$emit( 'toggle-options-menu' );
-  		}
+  		},
 	}
 };
 
@@ -109,5 +104,6 @@ module.exports = exports = {
 	border: none;
 	text-align: left;
 }
+
 
 </style>

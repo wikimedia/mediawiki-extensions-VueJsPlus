@@ -1,8 +1,6 @@
 <template>
 	<li>
-		<button class="vuejsplus-data-grid-option-sort-asc" @click="doEmit">
-			{{ label }}
-		</button>
+		<button class="vuejsplus-data-grid-option-sort-asc" @click="doEmit">{{ label }}</button>
 	</li>
 </template>
 
@@ -11,8 +9,6 @@
 // @vue/component
 module.exports = exports = {
 	name: 'SortASC',
-	components: {
-	},
 	props: {
 		option: {
 			type: Array
@@ -25,6 +21,8 @@ module.exports = exports = {
 			default: ''
 		}
 	},
+	components: {
+	},
 	emits: [
 		'sortasc'
 	],
@@ -32,11 +30,11 @@ module.exports = exports = {
 		this.option.dataIndex = this.dataIndex;
 		this.option.type = this.dataType;
 		return {
-			label: this.option.label
+			'label': this.option.label
 		};
 	},
 	methods: {
-		doEmit: function () {
+		doEmit: function() {
      		this.$emit( 'optionclick', this.option );
   		}
 	}

@@ -11,14 +11,11 @@
 
 <script>
 
-const { CdxSearchInput } = require( '@wikimedia/codex' );
+var { CdxSearchInput } = require( '@wikimedia/codex' );
 
 // @vue/component
 module.exports = exports = {
 	name: 'StringFilter',
-	components: {
-		CdxSearchInput: CdxSearchInput
-	},
 	props: {
 		option: {
 			type: Array,
@@ -33,19 +30,22 @@ module.exports = exports = {
 			default: ''
 		}
 	},
+	components: {
+		CdxSearchInput: CdxSearchInput
+	},
 	emits: [
 		'optionfilter'
 	],
 	data: function () {
-		this.option.filter = '';
-		this.option.dataIndex = this.dataIndex;
-		this.option.type = this.dataType;
+			this.option.filter = '';
+			this.option.dataIndex = this.dataIndex;
+			this.option.type = this.dataType;
 		return {
-			label: this.option.label
+			'label': this.option.label
 		};
 	},
 	methods: {
-		doEmit: function ( event ) {
+		doEmit: function( event ) {
 			event.preventDefault();
 			event.stopPropagation();
 
@@ -54,10 +54,10 @@ module.exports = exports = {
 			}
 			if ( event.inputType === 'deleteContentBackward' ) {
 				if ( this.option.filter !== '' ) {
-					this.option.filter = this.option.filter.slice( 0, Math.max( 0, this.option.filter.length - 1 ) );
+					this.option.filter = this.option.filter.substring( 0, this.option.filter.length - 1 );
 				}
 			}
-			// For some reason
+			// For some reason 
 			this.$emit( 'optionfilter', this.option );
   		}
 	}

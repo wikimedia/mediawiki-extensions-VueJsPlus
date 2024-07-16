@@ -1,14 +1,14 @@
+
 <template>
-	<th
-		tabindex="0"
-		:class="thClass"
-		:aria-label="ariaLabel"
-		:aria-controls="menuId"
+	<th tabindex="0"
+		v-bind:class="thClass" 
+		v-bind:aria-label="ariaLabel"
+		v-bind:aria-controls="menuId"
 		aria-haspopup="true"
 		aria-expanded="false"
-		:aria-role="ariaRole"
-		:aria-sorted="col.ariaSorted"
-		:data-colIndex="dataIndex"
+		v-bind:aria-role="ariaRole"
+		v-bind:aria-sorted="col.ariaSorted"
+		v-bind:data-colIndex="dataIndex"
 		@click="toggleOptionsList"
 		@keyup.enter="toggleOptionsList"
 		@keyup-space="toggleOptionsList"
@@ -16,10 +16,10 @@
 		<span>{{ label }}</span>
 		<col-options
 			v-if="hasOptions"
-			:id="menuId"
-			:data-index="dataIndex"
-			:data-type="dataType"
-			:options="options"
+			v-bind:id="menuId"
+			v-bind:data-index="dataIndex"
+			v-bind:data-type="dataType"
+			v-bind:options="options"
 			@update:model-value="doUpdateModel"
 			@toggle-options-menu="onOptionsFocusout"
 		></col-options>
@@ -27,18 +27,18 @@
 </template>
 
 <script>
-const ColOptions = require( './ColOptions.vue' );
+var ColOptions = require( './ColOptions.vue' );
 
 // @vue/component
 module.exports = exports = {
 	name: 'DataCol',
-	components: {
-		'col-options': ColOptions
-	},
 	props: {
 		col: {
 			type: Object
-		}
+		},
+	},
+	components: {
+		'col-options': ColOptions
 	},
 	emits: [
 		'update:model-value'
@@ -59,20 +59,20 @@ module.exports = exports = {
 		}
 
 		let ariaLabel = this.col.label;
-		const ariaRole = [ 'columnheader' ];
-		const thClass = [ 'opt-menu' ];
+		let ariaRole = [ 'columnheader' ];
+		let thClass = [ 'opt-menu' ];
 		if ( hasOptions ) {
-			ariaLabel = mw.message( 'vuejsplus-data-grid-option-button-aria-label', this.col.label ).toString();
+			ariaLabel = mw.message( 'vuejsplus-data-grid-option-button-aria-label', this.col.label ).toString()
 			ariaRole.push( 'button' );
 			thClass.push( 'opt-menu-btn' );
 		}
-
+		
 		return {
 			dataIndex: this.col.dataIndex,
 			dataType: this.col.type.toLowerCase(),
 			label: this.col.label,
 			options: this.col.options,
-			menuId: 'opt-menu-' + this.col.dataIndex,
+			menuId: 'opt-menu-'+this.col.dataIndex,
 			hasOptions: hasOptions,
 			thClass: thClass.join( ' ' ),
 			ariaRole: ariaRole.join( ' ' ),
@@ -80,13 +80,13 @@ module.exports = exports = {
 		};
 	},
 	methods: {
-		toggleOptionsList: function ( event ) {
+		toggleOptionsList: function( event ) {
 			event.stopPropagation();
-			let btn = $( event.target );
+			var btn = $( event.target );
 			if ( $( btn ).parents( '.opt-list' ).length > 0 ) {
 				// click on option in options list
 				return;
-			}
+			};
 			if ( $( btn ).hasClass( 'opt-menu' ) === false ) {
 				btn = $( btn ).parents( '.opt-menu' ).first();
 			}
@@ -107,11 +107,11 @@ module.exports = exports = {
 				$( btn ).find( '.opt-list' ).first().addClass( 'show' );
 			}
 		},
-		doUpdateModel: function ( option ) {
+		doUpdateModel: function( option ) {
      		this.$emit( 'update:model-value', option );
   		},
-		onOptionsFocusout: function () {
-			const btn = $( 'th[data-index' + this.col.dataIndex + ']' );
+		onOptionsFocusout: function() {
+			var btn =  $( 'th[data-index'+this.col.dataIndex+']' );
 			if ( $( btn ).attr( 'aria-expanded' ) === 'true' ) {
 				$( btn ).attr( 'aria-expanded', 'false' );
 				$( btn ).find( '.opt-list' ).first().removeClass( 'show' );
@@ -127,10 +127,11 @@ module.exports = exports = {
 	}
 };
 
-$( document ).on( 'click', function ( event ) {
+$( document ).click( function( event ) {
 	$( '.opt-menu' ).attr( 'aria-expanded', 'false' );
 	$( '.opt-list' ).removeClass( 'show' );
 } );
+
 
 </script>
 
