@@ -1,38 +1,26 @@
+
 <template>
-	<td
-		v-if="isBoolean"
-		:class="cellClass"
-		:data-index="cell.dataIndex"
-		:data-type="cell.type"
-	>
-		<img :src="imgSrc" :alt="imgAlt">
-	</td>
-	<td
-		v-else-if="isSelectable"
-		:class="cellClass"
-		:data-index="cell.dataIndex"
-		:data-type="cell.type"
-	>
-		<input
-			type="checkbox"
-			:name="rowIndex"
-			@change="toggleCheckbox"></input>
-	</td>
-	<td
-		v-else-if="isHtml"
-		:class="cell.class"
-		:data-index="cell.dataIndex"
-		:data-type="cell.type"
+	<td v-if="isBoolean"
+		v-bind:class="cellClass"
+		v-bind:data-index="cell.dataIndex"
+		v-bind:data-type="cell.type"
+	><img v-bind:src="imgSrc" v-bind:alt="imgAlt" /></td>
+	<td v-else-if="isSelectable"
+		v-bind:class="cellClass"
+		v-bind:data-index="cell.dataIndex"
+		v-bind:data-type="cell.type"
+	><input type="checkbox" v-bind:name="rowIndex" @change="toggleCheckbox"></input></td>
+	<td v-else-if="isHtml"
+		v-bind:class="cell.class"
+		v-bind:data-index="cell.dataIndex"
+		v-bind:data-type="cell.type"
 		v-html="content"
 	></td>
-	<td
-		v-else
-		:class="cell.class"
-		:data-index="cell.dataIndex"
-		:data-type="cell.type"
-	>
-		{{ content }}
-	</td>
+	<td v-else
+		v-bind:class="cell.class"
+		v-bind:data-index="cell.dataIndex"
+		v-bind:data-type="cell.type"
+	>{{ content }}</td>
 </template>
 
 <script>
@@ -40,8 +28,6 @@
 // @vue/component
 module.exports = exports = {
 	name: 'DataCell',
-	components: {
-	},
 	props: {
 		cell: {
 			type: Array,
@@ -52,12 +38,14 @@ module.exports = exports = {
 			default: ''
 		}
 	},
+	components: {
+	},
 	emits: [
 		'rowselected'
 	],
 	data: function () {
 		// TODO: Ensure object properties
-		const cellClass = [ this.cell.class ];
+		let cellClass = [ this.cell.class ];
 
 		let isHtml = false;
 		let isBoolean = false;
@@ -88,33 +76,33 @@ module.exports = exports = {
 			imgSrc = 'extensions/VueJsPlus/resources/images/Cross_CSS_Red.svg.png';
 			imgAlt = mw.message( 'vuejsplus-data-grid-boolean-cell-image-alt-text-unchecked' ).toString();
 			cellClass.push( 'vuejsplus-data-grid-boolean-cell unchecked' );
-		} else if ( isBoolean ) {
+		}  else if ( isBoolean ) {
 			imgSrc = 'extensions/VueJsPlus/resources/images/Dash_icon.svg.png';
 			imgAlt = mw.message( 'vuejsplus-data-grid-boolean-cell-image-alt-text-neutral' ).toString();
 			cellClass.push( 'vuejsplus-data-grid-boolean-cell neutral' );
 		}
-
+		
 		let content = this.cell.content;
 		if ( this.cell.hasOwnProperty( 'renderer' ) ) {
-			const renderer = this.cell.renderer;
-			content = window[ renderer ]( content );
+			let renderer = this.cell.renderer;
+			content = window[renderer]( content );
 		}
 
 		return {
-			cell: this.cell,
-			cellClass: cellClass.join( ' ' ),
-			isBoolean: isBoolean,
-			isHtml: isHtml,
-			isSelectable: isSelectable,
-			imgSrc: imgSrc,
-			imgAlt: imgAlt,
-			rowIndex: this.rowIndex,
-			content: content
+			'cell': this.cell,
+			'cellClass': cellClass.join( ' ' ),
+			'isBoolean' : isBoolean,
+			'isHtml' : isHtml,
+			'isSelectable': isSelectable,
+			'imgSrc': imgSrc,
+			'imgAlt': imgAlt,
+			'rowIndex': this.rowIndex,
+			'content': content
 		};
 	},
 	methods: {
-		toggleCheckbox: function ( event ) {
-			const cb = $( event.target );
+		toggleCheckbox: function( event ) {
+			let cb = $( event.target );
 			let isSelected = false;
 			if ( $( cb ).prop( 'checked' ) === true ) {
 				isSelected = true;
