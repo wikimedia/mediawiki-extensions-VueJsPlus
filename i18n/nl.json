@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mainframe98"
+			"Mainframe98",
+			"Siebrand"
 		]
 	},
+	"vuejsplus-desc": "Verzameling van VueJs-componenten",
 	"vuejsplus-data-tree-expand-btn-expanded-aria-label": "Samenvouwen",
 	"vuejsplus-data-tree-expand-btn-collapsed-aria-label": "Uitvouwen",
 	"vuejsplus-data-grid-option-sort-string-asc": "Oplopend sorteren",
