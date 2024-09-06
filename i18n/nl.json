@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mainframe98"
+			"Mainframe98",
+			"Siebrand"
 		]
 	},
 	"vuejsplus-data-tree-expand-btn-expanded-aria-label": "Samenvouwen",
@@ -14,5 +15,6 @@
 	"vuejsplus-data-grid-boolean-cell-image-alt-text-unchecked": "Uitgevinkt",
 	"vuejsplus-data-grid-boolean-cell-image-alt-text-neutral": "Neutraal",
 	"vuejsplus-data-grid-option-filter-date-from-label": "Vanaf datum",
-	"vuejsplus-data-grid-option-filter-date-to-label": "Tot datum"
+	"vuejsplus-data-grid-option-filter-date-to-label": "Tot datum",
+	"vuejsplus-desc": "Verzameling van VueJs-componenten"
 }
