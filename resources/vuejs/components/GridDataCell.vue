@@ -27,7 +27,7 @@
 
 // @vue/component
 module.exports = exports = {
-	name: 'DataCell',
+	name: 'GridDataCell',
 	props: {
 		cell: {
 			type: Array,

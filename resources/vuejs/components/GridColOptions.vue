@@ -13,14 +13,14 @@
 
 <script>
 
-var SortASC = require( './options/SortASC.vue' );
-var SortDESC = require( './options/SortDESC.vue' );
-var StringFilter = require( './options/StringFilter.vue' );
-var DateFilter = require( './options/DateFilter.vue' );
+var SortASC = require( './SortASC.vue' );
+var SortDESC = require( './SortDESC.vue' );
+var StringFilter = require( './StringFilter.vue' );
+var DateFilter = require( './DateFilter.vue' );
 
 // @vue/component
 module.exports = exports = {
-	name: 'ColOptions',
+	name: 'GridColOptions',
 	props: {
 		options: {
 			type: Array,

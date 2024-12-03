@@ -27,11 +27,11 @@
 </template>
 
 <script>
-var ColOptions = require( './ColOptions.vue' );
+var ColOptions = require( './GridColOptions.vue' );
 
 // @vue/component
 module.exports = exports = {
-	name: 'DataCol',
+	name: 'GridColCell',
 	props: {
 		col: {
 			type: Object

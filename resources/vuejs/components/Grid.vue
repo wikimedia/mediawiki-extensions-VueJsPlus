@@ -6,7 +6,8 @@
 	<table v-bind:class="tableClass">
 		<thead>
 			<tr>
-				<th is="column" v-for="datacol in datacols"
+				<th is="column"
+					v-for="datacol in datacols"
 					v-bind:col="datacol"
 					@update:model-value="doUpdateModel"
 				></th>
@@ -28,13 +29,13 @@
 </template>
 
 <script>
-var Toolbar = require( '../toolbar/App.vue' );
-var ColCell = require( './ColCell.vue' );
-var DataRow = require( './DataRow.vue' );
+var Toolbar = require( './Toolbar.vue' );
+var ColCell = require( './GridColCell.vue' );
+var DataRow = require( './GridDataRow.vue' );
 
 // @vue/component
 module.exports = exports = {
-	name: 'App',
+	name: 'Grid',
 	props: {
 		class: {
 			type: String,
@@ -93,6 +94,7 @@ module.exports = exports = {
 		// prepare rows and row.data
 		prepareRows( this.rows, availableRows, dataIndexColumnTypeMap, this.selectable, this.selected, renderer );
 
+		console.log( availableCols, availableRows );
 		return {
 			datacols: availableCols,
 			datarows: availableRows,
@@ -105,7 +107,6 @@ module.exports = exports = {
 	methods: {
 		doUpdateModel: function( option ) {
 			let dataIndex = option.dataIndex;
-			console.log( option );
 
 			if ( option.name === 'SortASC' ) {
 				if ( option.type === 'numeric' ) {
@@ -510,7 +511,7 @@ var getFilterOptions = function( type ) {
 }
 .opt-menu.opt-menu-btn{
 	padding-right: 1.5em;
-	background-image: url('../../../images/Bootstrap_three-dots-vertical.svg.png');
+	background-image: url( ../../../images/Bootstrap_three-dots-vertical.svg.png );
 	background-repeat: no-repeat;
 	background-size: 1em;
 	background-position-x: right;
