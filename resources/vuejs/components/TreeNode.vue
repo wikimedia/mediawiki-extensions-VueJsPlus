@@ -1,6 +1,6 @@
 <template>
 	<li
-		v-if:="selectableLinkNode"
+		v-if="selectableLinkNode"
 		class="vuejsplus-data-tree-item"
 		role="treeitem">
 		<div>
@@ -21,8 +21,8 @@
 			:aria-labelledby="itemId">
 			<component
 				:is="item.type"
-				v-for="( item ) in children"
-				:key="update"
+				v-for="( item, index ) in children"
+				:key="index"
 				:item="item"
 				:selectable="isSelectable"
 				:selected="item.selected"
@@ -31,7 +31,7 @@
 		</ul>
 	</li>
 	<li
-		v-else-if:="selectableTextNode"
+		v-else-if="selectableTextNode"
 		class="vuejsplus-data-tree-item"
 		role="treeitem">
 		<div>
@@ -52,8 +52,8 @@
 			:aria-labelledby="itemId">
 			<component
 				:is="item.type"
-				v-for="( item ) in children"
-				:key="update"
+				v-for="( item, index ) in children"
+				:key="index"
 				:item="item"
 				:selectable="isSelectable"
 				:selected="item.selected"
@@ -62,7 +62,7 @@
 		</ul>
 	</li>
 	<li
-		v-else-if:="linkNode"
+		v-else-if="linkNode"
 		class="vuejsplus-data-tree-item"
 		role="treeitem">
 		<div>
@@ -75,8 +75,8 @@
 			:aria-labelledby="itemId">
 			<component
 				:is="item.type"
-				v-for="( item ) in children"
-				:key="update"
+				v-for="( item, index ) in children"
+				:key="index"
 				:item="item"
 				:selectable="isSelectable"
 				:selected="item.selected"
@@ -97,8 +97,8 @@
 			:aria-labelledby="itemId">
 			<component
 				:is="item.type"
-				v-for="( item ) in children"
-				:key="update"
+				v-for="( item, index ) in children"
+				:key="index"
 				:item="item"
 				:selectable="isSelectable"
 				:selected="item.selected"
@@ -108,7 +108,7 @@
 </template>
 
 <script>
-const Leaf = require( './Leaf.vue' );
+const Leaf = require( './TreeLeaf.vue' );
 
 // @vue/component
 module.exports = exports = {

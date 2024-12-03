@@ -1,20 +1,22 @@
 
 <template>
 	<tr v-bind:class="rowClass" v-show="isVisible" v-bind:data-rowindex="rowIndex">
-		<td is="datacell" v-for="cell in cells"
-			v-bind:cell="cell"
-			v-bind:row-index="rowIndex"
+		<datacell
+			v-for="(cell, index) in cells"
+			:key="index"
+			:cell="cell"
+			:row-index="rowIndex"
 			@rowselected="handleSelect"
-		></td>
+		></datacell>
 	</tr>
 </template>
 
 <script>
-var DataCell = require( './DataCell.vue' );
+var DataCell = require( './GridDataCell.vue' );
 
 // @vue/component
 module.exports = exports = {
-	name: 'DataRow',
+	name: 'GridDataRow',
 	props: {
 		row: {
 			type: Array,

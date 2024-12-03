@@ -15,7 +15,7 @@ var { CdxSearchInput } = require( '@wikimedia/codex' );
 
 // @vue/component
 module.exports = exports = {
-	name: 'StringFilter',
+	name: 'GridStringFilter',
 	props: {
 		option: {
 			type: Array,

@@ -19,16 +19,17 @@
 </template>
 
 <script>
-const Toolbar = require( '../toolbar/App.vue' );
-const Leaf = require( './Leaf.vue' );
-const Node = require( './Node.vue' );
-const ExpandableNode = require( './ExpandableNode.vue' );
+const { defineComponent } = require( 'vue' );
+const Toolbar = require( './Toolbar.vue' );
+const Leaf = require( './TreeLeaf.vue' );
+const Node = require( './TreeNode.vue' );
+const ExpandableNode = require( './TreeExpandableNode.vue' );
 
 let itemId = 1;
 
 // @vue/component
-module.exports = exports = {
-	name: 'App',
+module.exports = defineComponent( {
+	name: 'Tree',
 	components: {
 		Leaf: Leaf,
 		Node: Node,
@@ -137,7 +138,7 @@ module.exports = exports = {
 			}
 		}
 	}
-};
+} );
 
 function prepareNode( node, isSelectable, isSelected, isExpandable, isExpanded, path = '' ) {
 	const leaf = 'Leaf';
@@ -260,8 +261,8 @@ ul.vuejsplus-data-tree.vuejsplus-data-tree-selectable input[type='checkbox'] {
 .vuejsplus-data-tree-item-checkbox:checked + span::before,
 .vuejsplus-data-tree-item-checkbox:checked + a::before {
 	background-color: #3366cc;
-  	border-color: #3366cc;
-	background-image: url("../../../../../../resources/src/mediawiki.ui.checkbox/images/checkbox-checked.svg");
-  	background-size: 90% 90%;
+	border-color: #3366cc;
+	background-image: url("../../../../resources/src/mediawiki.ui.checkbox/images/checkbox-checked.svg");
+	background-size: 90% 90%;
 }
 </style>

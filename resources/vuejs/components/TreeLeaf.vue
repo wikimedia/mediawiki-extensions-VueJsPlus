@@ -1,6 +1,5 @@
 <template>
-	<li
-		v-if:="selectableLinkNode"
+	<li v-if="selectableLinkNode"
 		role="treeitem"
 		class="vuejsplus-data-tree-item">
 		<div>
@@ -15,8 +14,7 @@
 			><a :id="itemId" :href="href" :class="nodeClass">{{ label }}</a>
 		</div>
 	</li>
-	<li
-		v-else-if:="selectableTextNode"
+	<li v-else-if="selectableTextNode"
 		role="treeitem"
 		class="vuejsplus-data-tree-item">
 		<div>
@@ -31,14 +29,12 @@
 			><span :id="itemId" :class="nodeClass">{{ label }}</span>
 		</div>
 	</li>
-	<li
-		v-else-if:="linkNode"
+	<li v-else-if="linkNode"
 		role="treeitem"
 		class="vuejsplus-data-tree-item">
 		<div><a :href="href">{{ label }}</a></div>
 	</li>
-	<li
-		v-else
+	<li v-else
 		role="treeitem"
 		class="vuejsplus-data-tree-item">
 		<div><span :id="itemId" :class="nodeClass">{{ label }}</span></div>
@@ -49,7 +45,7 @@
 
 // @vue/component
 module.exports = exports = {
-	name: 'Leaf',
+	name: 'TreeLeaf',
 	components: {
 	},
 	props: {

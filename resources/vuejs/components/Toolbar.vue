@@ -7,6 +7,7 @@
 		<ul v-show="hasItemsLeft" class="vuejsplus-toolbar-items left">
 			<item
 				v-for="item in itemsLeft"
+				:key="item.name"
 				:spec="item"
 				@itemclick="handleItemClick"
 			></item>
@@ -14,6 +15,7 @@
 		<ul v-show="hasItemsRight" class="vuejsplus-toolbar-items right">
 			<item
 				v-for="item in itemsRight"
+				:key="item.name"
 				:spec="item"
 				@itemclick="handleItemClick"
 			></item>
@@ -22,13 +24,14 @@
 </template>
 
 <script>
-const Item = require( './Item.vue' );
+const { defineComponent } = require( 'vue' );
+const ToolbarItem = require( './ToolbarItem.vue' );
 
 // @vue/component
-module.exports = exports = {
-	name: 'App',
+module.exports = defineComponent( {
+	name: 'Toolbar',
 	components: {
-		item: Item
+		item: ToolbarItem
 	},
 	props: {
 		class: {
@@ -100,8 +103,7 @@ module.exports = exports = {
 			}
 		}
 	}
-};
-
+} );
 function sortTools( tools ) {
 	tools.sort( sortFunction );
 	function sortFunction( a, b ) {
@@ -110,7 +112,6 @@ function sortTools( tools ) {
 		return ( a - b );
 	}
 }
-
 </script>
 
 <style lang="css">
