@@ -98,9 +98,7 @@ module.exports = defineComponent( {
 	},
 	methods: {
 		handleItemClick: function ( data ) {
-			if ( data.hasOwnProperty( 'callback' ) ) {
-				this.$emit( 'toolclick', data );
-			}
+			this.$emit( 'toolclick', data );
 		}
 	}
 } );
@@ -130,6 +128,9 @@ function sortTools( tools ) {
 	display: inline-flex;
 	list-style: none;
 	margin: 0 !important;
+}
+.vuejsplus-toolbar-items li {
+	margin-bottom: 0;
 }
 .vuejsplus-toolbar-items.left {
 	justify-content: flex-start;
