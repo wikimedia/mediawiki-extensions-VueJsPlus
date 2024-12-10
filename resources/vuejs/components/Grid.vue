@@ -94,7 +94,6 @@ module.exports = exports = {
 		// prepare rows and row.data
 		prepareRows( this.rows, availableRows, dataIndexColumnTypeMap, this.selectable, this.selected, renderer );
 
-		console.log( availableCols, availableRows );
 		return {
 			datacols: availableCols,
 			datarows: availableRows,
