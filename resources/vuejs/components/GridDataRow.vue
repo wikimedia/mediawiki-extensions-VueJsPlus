@@ -1,13 +1,13 @@
 
 <template>
 	<tr v-bind:class="rowClass" v-show="isVisible" v-bind:data-rowindex="rowIndex">
-		<datacell
+		<td is="vue:datacell"
 			v-for="(cell, index) in cells"
 			:key="index"
 			:cell="cell"
 			:row-index="rowIndex"
 			@rowselected="handleSelect"
-		></datacell>
+		></td>
 	</tr>
 </template>
 

@@ -6,16 +6,17 @@
 	<table v-bind:class="tableClass">
 		<thead>
 			<tr>
-				<th is="column"
+				<th is="vue:column"
 					v-for="datacol in datacols"
+					:key="datacol.dataIndex"
 					v-bind:col="datacol"
 					@update:model-value="doUpdateModel"
 				></th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr is="datarow" v-for="datarow in datarows"
-				:key="datarow.data"
+			<tr is="vue:datarow" v-for="datarow in datarows"
+				:key="datarow.dataIndex"
 				v-show="datarow.isVisible"
 				v-bind:row="datarow"
 			></tr>
@@ -510,7 +511,7 @@ var getFilterOptions = function( type ) {
 }
 .opt-menu.opt-menu-btn{
 	padding-right: 1.5em;
-	background-image: url( ../../../images/Bootstrap_three-dots-vertical.svg.png );
+	background-image: url( '../../../VueJsPlus/resources/images/Bootstrap_three-dots-vertical.svg.png' );
 	background-repeat: no-repeat;
 	background-size: 1em;
 	background-position-x: right;
