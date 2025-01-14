@@ -9,7 +9,7 @@
 		v-bind:class="cellClass"
 		v-bind:data-index="cell.dataIndex"
 		v-bind:data-type="cell.type"
-	><input type="checkbox" v-bind:name="rowIndex" @change="toggleCheckbox"></input></td>
+	><input type="checkbox" v-bind:name="rowIndex" @change="toggleCheckbox" /></td>
 	<td v-else-if="isHtml"
 		v-bind:class="cell.class"
 		v-bind:data-index="cell.dataIndex"

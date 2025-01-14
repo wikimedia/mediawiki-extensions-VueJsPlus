@@ -8,5 +8,7 @@
 	"vuejsplus-data-grid-boolean-cell-image-alt-text-checked",
 	"vuejsplus-data-grid-boolean-cell-image-alt-text-unchecked",
 	"vuejsplus-data-grid-option-filter-date-from-label",
-	"vuejsplus-data-grid-option-filter-date-to-label"
+	"vuejsplus-data-grid-option-filter-date-to-label",
+	"vuejsplus-data-tree-expand-btn-expanded-aria-label",
+	"vuejsplus-data-tree-expand-btn-collapsed-aria-label"
 ]
