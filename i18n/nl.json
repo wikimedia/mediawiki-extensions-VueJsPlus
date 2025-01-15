@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Mainframe98",
+			"McDutchie",
 			"Siebrand"
 		]
 	},
@@ -16,5 +17,6 @@
 	"vuejsplus-data-grid-boolean-cell-image-alt-text-neutral": "Neutraal",
 	"vuejsplus-data-grid-option-filter-date-from-label": "Vanaf datum",
 	"vuejsplus-data-grid-option-filter-date-to-label": "Tot datum",
-	"vuejsplus-desc": "Verzameling van VueJs-componenten"
+	"vuejsplus-desc": "Verzameling van VueJs-componenten",
+	"vuejsplus-data-grid-option-button-aria-label": "Opties kolom $1"
 }
