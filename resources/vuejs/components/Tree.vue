@@ -98,7 +98,7 @@ module.exports = defineComponent( {
 		if ( this.selectable === true ) {
 			classes.push( 'vuejsplus-data-tree-selectable' );
 		}
-		if ( this.selectable === true ) {
+		if ( this.expandable === true ) {
 			classes.push( 'vuejsplus-data-tree-expandable show' );
 		}
 
@@ -144,7 +144,6 @@ function prepareNode( node, isSelectable, isSelected, isExpandable, isExpanded, 
 	const leaf = 'Leaf';
 	const tree = 'Node';
 	const expandableTree = 'ExpandableNode';
-
 	node.path = path + '/' + node.name;
 
 	if ( !node.hasOwnProperty( 'id' ) ) {
@@ -186,17 +185,17 @@ function prepareNode( node, isSelectable, isSelected, isExpandable, isExpanded, 
 	padding-top: 0.5em;
 }
 ul.vuejsplus-data-tree {
-    list-style: none;
-    padding-left: 0;
+	list-style: none;
+	padding-left: 0;
 	margin-left: 1em;
 	margin-top: 0;
 }
-ul.vuejsplus-data-tree.vuejsplus-data-tree-selectable {
-    list-style: none;
-    padding-left: 0;
+ul.vuejsplus-data-tree {
+	list-style: none;
+	padding-left: 5px;
 	margin-left: 1.5em;
 }
-ul.vuejsplus-data-tree.vuejsplus-data-tree-selectable.vuejsplus-data-tree-expandable {
+ul.vuejsplus-data-tree.vuejsplus-data-tree-expandable {
 	margin-left: 3.5em;
 }
 ul.vuejsplus-data-tree > li {
@@ -226,6 +225,9 @@ ul.vuejsplus-data-tree > li:last-child {
 }
 ul.vuejsplus-data-tree > li:last-child::after {
     height: 8px;
+}
+.vuejsplus-data-tree-item > div:not( :has( input ) ) {
+	padding-left: 5px;
 }
 ul.vuejsplus-data-tree.vuejsplus-data-tree-selectable input[type='checkbox'] {
 	margin-right: 0.5em;
@@ -262,7 +264,7 @@ ul.vuejsplus-data-tree.vuejsplus-data-tree-selectable input[type='checkbox'] {
 .vuejsplus-data-tree-item-checkbox:checked + a::before {
 	background-color: #3366cc;
 	border-color: #3366cc;
-	background-image: url("../../../../resources/src/mediawiki.ui.checkbox/images/checkbox-checked.svg");
+	background-image: url("../../../../../resources/src/mediawiki.ui.checkbox/images/checkbox-checked.svg");
 	background-size: 90% 90%;
 }
 </style>

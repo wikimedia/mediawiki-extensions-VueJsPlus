@@ -11,7 +11,7 @@
 				:aria-expanded="isExpanded"
 				:aria-controls="treeId"
 				@click="toggleTree"
-			></a><div style="display:inline-block; position: relative; top: -5px;">
+			></a><div style="display:inline-block; position: relative;">
 				<input
 					type="checkbox"
 					:aria-labelledby="itemId"
@@ -51,7 +51,7 @@
 				:aria-expanded="isExpanded"
 				:aria-controls="treeId"
 				@click="toggleTree"
-			></a><div style="display:inline-block; position: relative; top: -5px;">
+			></a><div style="display:inline-block; position: relative;">
 				<input
 					type="checkbox"
 					:aria-labelledby="itemId"
@@ -146,7 +146,7 @@ const Leaf = require( './TreeLeaf.vue' );
 
 // @vue/component
 module.exports = exports = {
-	name: 'TreeExpandableNode',
+	name: 'ExpandableNode',
 	components: {
 		Leaf: Leaf
 	},
@@ -311,13 +311,13 @@ module.exports = exports = {
 }
 .vuejsplus-data-tree-expand-btn {
 	display: inline-block;
-	width: 2.1em;
-	height: 1.5625em;
-	background-image: url("../../../images/OOUI-style-expand-tblr.svg.png");
+	width: 30px;
+	height: 20px;
+	background-image: url("../../../VueJsPlus/resources/images/OOUI-style-expand-tblr.svg.png");
 	background-repeat: no-repeat;
-	background-position-x: 0.25em;;
+	background-position: 0.25em;
 }
 .vuejsplus-data-tree-expand-btn.expanded {
-	background-image: url("../../../images/20px-OOjs_UI_icon_expand.svg.png");
+	background-image: url("../../../VueJsPlus/resources/images/20px-OOjs_UI_icon_expand.svg.png");
 }
 </style>
