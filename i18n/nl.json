@@ -2,8 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Mainframe98",
-			"Siebrand",
-			"McDutchie"
+			"McDutchie",
+			"Siebrand"
 		]
 	},
 	"vuejsplus-desc": "Verzameling van VueJs-componenten",
