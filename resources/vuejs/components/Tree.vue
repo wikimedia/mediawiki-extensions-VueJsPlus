@@ -242,7 +242,7 @@ ul.vuejsplus-data-tree.vuejsplus-data-tree-selectable input[type='checkbox'] {
 .vuejsplus-data-tree-item-checkbox + span::before,
 .vuejsplus-data-tree-item-checkbox + a::before {
 	cursor: pointer;
-  	transition: background-color 100ms,color 100ms,border-color 100ms,box-shadow 100ms;
+	transition: background-color 100ms,color 100ms,border-color 100ms,box-shadow 100ms;
 	content: '';
 	background-color: #fff;
 	background-origin: border-box;
@@ -264,7 +264,7 @@ ul.vuejsplus-data-tree.vuejsplus-data-tree-selectable input[type='checkbox'] {
 .vuejsplus-data-tree-item-checkbox:checked + a::before {
 	background-color: #3366cc;
 	border-color: #3366cc;
-	background-image: url("../../../../../resources/src/mediawiki.ui.checkbox/images/checkbox-checked.svg");
+	background-image: url("../../../../resources/src/mediawiki.ui.checkbox/images/checkbox-checked.svg");
 	background-size: 90% 90%;
 }
 </style>
