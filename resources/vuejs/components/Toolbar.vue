@@ -4,14 +4,19 @@
 		:aria-label="ariaLabel"
 		role="toolbar"
 	>
-		<ul v-show="hasItemsLeft" class="vuejsplus-toolbar-items left">
-			<item
-				v-for="item in itemsLeft"
-				:key="item.name"
-				:spec="item"
-				@itemclick="handleItemClick"
-			></item>
-		</ul>
+		<div class="left">
+			<button v-if="cancelButton" class="vuejsplus-toolbar-tool-cancel cdx-button cdx-button--action-default cdx-button--weight-primary cdx-button--size-large cdx-button--framed"
+				aria-label="Cancel" title="Cancel" :key="cancel" @click="$emit( 'cancel' )">
+			</button>
+			<ul v-show="hasItemsLeft" class="vuejsplus-toolbar-items">
+				<item
+					v-for="item in itemsLeft"
+					:key="item.name"
+					:spec="item"
+					@itemclick="handleItemClick"
+				></item>
+			</ul>
+		</div>
 		<ul v-show="hasItemsRight" class="vuejsplus-toolbar-items right">
 			<item
 				v-for="item in itemsRight"
@@ -45,10 +50,15 @@ module.exports = defineComponent( {
 		ariaLabel: {
 			type: String,
 			default: ''
+		},
+		hasCancelButton: {
+			type: Boolean,
+			default: false
 		}
 	},
 	emits: [
-		'toolclick'
+		'toolclick',
+		'cancel'
 	],
 	data: function () {
 		const itemsLeft = [];
@@ -93,7 +103,8 @@ module.exports = defineComponent( {
 			itemsLeft: itemsLeft,
 			itemsRight: itemsRight,
 			hasItemsLeft: hasItemsLeft,
-			hasItemsRight: hasItemsRight
+			hasItemsRight: hasItemsRight,
+			cancelButton: this.hasCancelButton
 		};
 	},
 	methods: {
@@ -124,6 +135,7 @@ function sortTools( tools ) {
 	position: fixed;
 	z-index: 5;
 }
+.left,
 .vuejsplus-toolbar-items {
 	display: inline-flex;
 	list-style: none;
@@ -140,5 +152,12 @@ function sortTools( tools ) {
 }
 .one-slot-only .vuejsplus-toolbar-items {
 	width: 100%;
+}
+.vuejsplus-toolbar-tool-cancel {
+	background-image: url( '../../../VueJsPlus/resources/images/Codex_icon_close.svg');
+	background-repeat: no-repeat;
+	display: block;
+    background-position: center;
+    width: 42px;
 }
 </style>
