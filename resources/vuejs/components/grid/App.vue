@@ -105,7 +105,6 @@ module.exports = exports = {
 	methods: {
 		doUpdateModel: function( option ) {
 			let dataIndex = option.dataIndex;
-			console.log( option );
 
 			if ( option.name === 'SortASC' ) {
 				if ( option.type === 'numeric' ) {
