@@ -292,7 +292,7 @@ module.exports = exports = {
 				? mw.message( 'vuejsplus-data-tree-expand-btn-expanded-aria-label' ).text()
 				: mw.message( 'vuejsplus-data-tree-expand-btn-collapsed-aria-label' ).text();
 
-			$( btn ).attr( 'aria-expanded', newExpandedStatus.text() );
+			$( btn ).attr( 'aria-expanded', newExpandedStatus );
 			$( btn ).attr( 'aria-label', ariaLabel );
 
 			if ( newExpandedStatus ) {
