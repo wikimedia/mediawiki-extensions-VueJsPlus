@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Tensama0415"
+		]
+	},
+	"vuejsplus-data-tree-expand-btn-expanded-aria-label": "접기",
+	"vuejsplus-data-tree-expand-btn-collapsed-aria-label": "펼치기",
+	"vuejsplus-data-grid-option-sort-string-asc": "오름차순 정렬",
+	"vuejsplus-data-grid-option-sort-string-desc": "내림차순 정렬",
+	"vuejsplus-data-grid-option-filter-string": "찾기"
+}
