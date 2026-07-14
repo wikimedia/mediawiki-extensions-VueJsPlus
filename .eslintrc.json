@@ -5,12 +5,9 @@
 		"wikimedia/jquery",
 		"wikimedia/mediawiki"
 	],
-	"rules": {
-		"no-implicit-globals": "off"
+	"parserOptions": {
+		"sourceType": "commonjs"
 	},
-	"globals": {
-		"isSelected": "readonly",
-		"sortOptions": "readonly",
-		"filterOptions": "writable"
-	}
+	"globals": {},
+	"rules": {}
 }
