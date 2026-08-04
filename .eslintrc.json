@@ -8,6 +8,5 @@
 	"parserOptions": {
 		"sourceType": "commonjs"
 	},
-	"globals": {},
 	"rules": {}
 }
